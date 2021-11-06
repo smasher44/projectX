@@ -47,7 +47,7 @@ class App extends Component {
         { this.state.route === 'home' ? 
           (
             !robots.length ?
-            <h1>Loading</h1>:
+            <h1>Loading Please Wait</h1>:
             (
               <div className='tc'>
                     <h1 className='f2'>RoboFriends</h1>
