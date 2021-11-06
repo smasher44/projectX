@@ -1,3 +1,3 @@
 # projectX
-For training purposes 
+For training purposes. 
 This repository is sample of create-react-app
