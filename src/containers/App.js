@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
 import {Navigation}  from '../components/Navigation/Navigation';
-import { Signin } from '../components/Signin/Signin';
-import { Register } from '../components/Register/Register';
+import {Signin} from '../components/Signin/Signin';
+import {Register} from '../components/Register/Register';
 import CardList from '../components/robofriends/CardList';
 import {robots} from './robots'; // robots are not default to be exported
 import SearchBox from '../components/robofriends/SearchBox';
 import Scroll from '../components/robofriends/Scroll';
 import ErrorBoundry from '../components/robofriends/ErrorBoundry';
-import 'tachyons';
+
 import './App.css';
+
+import { setSearchField } from '../actions'; // returns a object
+import { connect } from 'react-redux';
 
 
 class App extends Component {
@@ -18,7 +21,6 @@ class App extends Component {
       route: 'signin',// static
       isSignedIn: false,
       robots: robots,
-      searchfield:''
     }
     // later on React Router is applied on Routing React
   }
@@ -37,7 +39,8 @@ class App extends Component {
   }
     
   render() {
-        const {robots, searchfield} = this.state;
+        const { robots } = this.state;
+        const {searchField, onsearchChange } = this.props;
         const filteredRobots = robots.filter(robot =>{
             return robot.name.toLowerCase().includes(searchfield.toLowerCase());
        })
@@ -73,4 +76,18 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    searchField: state.searchField,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  // mapDispatchToProps will return an object that contains all of our action
+    return {  
+      onsearchChange: (event) => dispatch(setSearchField(event.target.value)),
+    }
+  }
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(App);
