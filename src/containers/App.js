@@ -39,15 +39,15 @@ class App extends Component {
   }
     
   render() {
-        const { robots } = this.state;
+        const { robots, isSignedIn, route } = this.state;
         const {searchField, onsearchChange } = this.props;
         const filteredRobots = robots.filter(robot =>{
             return robot.name.toLowerCase().includes(searchField.toLowerCase());
        })
     return (
     <div className="App">
-      <Navigation isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange}/>
-        { this.state.route === 'home' ? 
+      <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
+        { route === 'home' ? 
           (
             !robots.length ?
             <h1>Loading Please Wait</h1>:
@@ -65,7 +65,7 @@ class App extends Component {
            )
            :
            (
-              this.state.route === 'signin'?
+              route === 'signin'?
               <Signin onRouteChange={this.onRouteChange}/>
               : 
               <Register onRouteChange={this.onRouteChange}/>
