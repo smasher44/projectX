@@ -1,3 +1,3 @@
 # projectX
 For training purposes. 
-Recently added Redux State Management 
+Recently added Redux State Management and ParticleJS
