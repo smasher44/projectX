@@ -3,41 +3,20 @@ import './Navigation.css';
 import Particles from "react-tsparticles";
 
 const particlesOptions = {
-    fpsLimit: 90,
-    interactivity: {
-      events: {
-        onClick: {
-          enable: true,
-          // mode: "push",
-        },
-        resize: true,
-      },
-      modes: {
-        bubble: {
-          distance: 400,
-          duration: 5,
-          opacity: 0.8,
-          size: 70,
-        },
-        push: {
-          quantity: 3,
-        },
-        
-      },
-    },
+    fpsLimit: 120,
     particles: {
       color: {
-        value: "#ffffff",
+        value: "#0ccac4",
       },
       links: {
-        color: "#ffffff",
+        color: "#0ccac4",
         distance: 150,
         enable: true,
         opacity: 0.5,
         width: 1,
       },
       collisions: {
-        enable: false,
+        enable: true,
       },
       move: {
         direction: "none",
@@ -50,22 +29,19 @@ const particlesOptions = {
       number: {
         density: {
           enable: true,
-          value_area: 800,
+          value_area: 1800,
         },
-        value: 80,
+        value: 90,
       },
       opacity: {
-        value: 0.5,
-      },
-      shape: {
-        type: "circle",
+        value: 0.9,
       },
       size: {
         random: true,
-        value: 5,
+        value: 3,
       },
     },
-    detectRetina: true,
+    
   }
   
 export const Navigation = ({ onRouteChange, isSignedIn }) => {
