@@ -7,11 +7,10 @@ import {robots} from './robots'; // robots are not default to be exported
 import SearchBox from '../components/robofriends/SearchBox';
 import Scroll from '../components/robofriends/Scroll';
 import ErrorBoundry from '../components/robofriends/ErrorBoundry';
-
 import './App.css';
-
 import { setSearchField } from '../actions'; // returns a object
 import { connect } from 'react-redux';
+
 
 
 class App extends Component {
@@ -50,8 +49,9 @@ class App extends Component {
         { route === 'home' ? 
           (
             !robots.length ?
-            <h1>Loading Please Wait</h1>:
+            <h1>Something went wrong Please Wait</h1>:
             (
+        
               <div className='tc'>
                     <h1 className='f2'>RoboFriends</h1>
                     <SearchBox onsearchChange={onsearchChange}/>
@@ -60,7 +60,9 @@ class App extends Component {
                           <CardList robots={filteredRobots}/>
                        </ErrorBoundry>
                     </Scroll>
+                  
               </div>
+              
             )
            )
            :
